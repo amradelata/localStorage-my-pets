@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>local storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="contaner">
+    <div class="buttonHolder">
+        <button onclick="myButton()">click to show me my cat</button>
+        <button onclick="myButtonTwo()">click to show me my dog</button>
+    </div>
+    <div class="meunsHolder">
+        <div id="catInformation">
+        </div>
+        <span class="cat"></span>
+
+        <div id="dogInformation"></div>
+        <span class="dog"></span>
+    </div>
+</div>
+
+
+
+
+</body>
+
+<script>
+function myButton(){
+localStorage.setItem('myCat', "Tom");
+localStorage.setItem('myCatImg',"https://trupanion.com/blog/wp-content/uploads/2018/08/blackwhitekittyresized-200x300.jpg");
+document.getElementById("catInformation").innerHTML = localStorage.getItem("myCat");
+document.getElementById("catInformation").style.display = "inline-block";
+document.getElementById("catInformation").style.backgroundImage = `url(${localStorage.getItem("myCatImg")})`
+
+let elems = document.getElementsByClassName("cat");
+for (let i=0;i<elems.length;i+=1){
+  elems[i].style.display = 'inline-block';
+}
+
+}
+
+function myButtonTwo(){
+localStorage.setItem('myDOg', "Rex");
+localStorage.setItem('myDogImg',"http://www.devondogboarding.com/wp-content/uploads/2011/12/Curious-puppy-dog-boarding-200x300.jpg");
+document.getElementById("dogInformation").innerHTML = localStorage.getItem("myDOg")
+document.getElementById("dogInformation").style.display = "inline-block"
+document.getElementById("dogInformation").style.backgroundImage = `url(${localStorage.getItem("myDogImg")})`
+document.getElementsByClassName("dog");
+let elems = document.getElementsByClassName("dog");
+for (let i=0;i<elems.length;i+=1){
+  elems[i].style.display = 'inline-block';
+}
+
+
+}
+
+</script>
+</html>
